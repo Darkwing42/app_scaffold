@@ -61,6 +61,19 @@ def create_app(config_name):
 
 
 	### resource area ### 
+	
+	from user.resources import (
+								UserRegisterAPI,
+								UserLoginAPI,
+								UserAPI,
+								UserLogoutAPI,
+								TokenRefreshAPI
+								)
+	api.add_resource(UserRegisterAPI, '/api/v1/register')
+	api.add_resource(UserLoginAPI, '/api/v1/login')
+	api.add_resource(UserLogoutAPI, '/api/v1/logout')
+	api.add_resource(TokenRefreshAPI, '/api/v1/refresh')
+	api.add_resource(UserApi, '/api/v1/user')
 
 
 	db.init_app(app)
